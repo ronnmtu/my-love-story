@@ -286,3 +286,13 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Deploy to GitHub Pages
+
+This site now builds a static `index.html` automatically for GitHub Pages. To publish it:
+
+1. Push this project to a GitHub repository using a `main` branch.
+2. In GitHub, open **Settings → Pages** and set **Source** to **GitHub Actions**.
+3. Push to `main` (or run **Deploy to GitHub Pages** from the Actions tab).
+
+GitHub will publish the site at `https://<your-github-username>.github.io/<repository-name>/`.
