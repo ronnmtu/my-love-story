@@ -122,7 +122,9 @@ function Index() {
         <PolaroidGallery />
         <DateRanking />
         <FunFacts />
+        <Playlist />
         <LoveCounter />
+        <JuneCountdown />
         <LoveQuiz onCorrect={() => fire("confetti")} />
         <GiftFinale
           onLove={() => {
@@ -130,6 +132,8 @@ function Index() {
             fire("hearts");
           }}
         />
+        <ShareCard />
+
 
         <footer className="pb-14 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
           <Reveal>Made with love by {love.yourName}</Reveal>
