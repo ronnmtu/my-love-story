@@ -263,7 +263,7 @@ export function LoveQuiz({ onCorrect }: { onCorrect: () => void }) {
   const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
 
-  const q = love.quiz.questions[step];
+  const q = love.quiz.questions[step]!;
   const total = love.quiz.questions.length;
 
   const choose = (a: string) => {
