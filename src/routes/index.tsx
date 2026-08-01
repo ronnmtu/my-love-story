@@ -8,11 +8,14 @@ import {
   DateRanking,
   FunFacts,
   GiftFinale,
+  JuneCountdown,
   LoveCounter,
   LoveQuiz,
   MemoryTimeline,
+  Playlist,
   PolaroidGallery,
   ReasonCards,
+  ShareCard,
 } from "@/components/love/scenes";
 
 export const Route = createFileRoute("/")({
