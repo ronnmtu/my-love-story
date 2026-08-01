@@ -117,6 +117,8 @@ function Index() {
         <ReasonCards />
         <MemoryTimeline />
         <PolaroidGallery />
+        <DateRanking />
+        <FunFacts />
         <LoveCounter />
         <LoveQuiz onCorrect={() => fire("confetti")} />
         <GiftFinale
