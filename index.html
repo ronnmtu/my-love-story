@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A little love letter for Nyawira." />
+  <title>Happy Girlfriend's Day, Nyawira ♥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#19382a; --muted:#61786b; --mint:#d9f2dc; --cream:#fffdf0; --rose:#d99b8a; --green:#579366; --line:#d8ddc7; }
+    * { box-sizing:border-box } html { scroll-behavior:smooth } body { margin:0; color:var(--ink); font-family:Karla,system-ui,sans-serif; background:linear-gradient(135deg,var(--cream),var(--mint)); } h1,h2,h3 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; } button { font:inherit; cursor:pointer }
+    #welcome { min-height:100vh; display:grid; place-items:center; text-align:center; padding:28px; background:#110913; color:#fff2ea; position:relative; overflow:hidden; }
+    #welcome:before { content:'♥  ✿  ♥  ✿  ♥'; position:absolute; inset:auto 0 8%; color:#d99b8a33; font-size:clamp(2rem,7vw,7rem); letter-spacing:1.5rem; }
+    #welcome h1 { font-size:clamp(2.7rem,6vw,5rem); margin:0; } .cursor { display:inline-block; color:#7cc99a; animation:blink .8s infinite; }
+    .open { margin-top:48px; border:0; border-radius:999px; padding:18px 52px; color:#fff; letter-spacing:.35em; font-size:.73rem; text-transform:uppercase; background:linear-gradient(90deg,#579366,#d99b8a); transition:transform .2s; } .open:hover { transform:scale(1.04) }
+    #story { display:none; overflow:hidden; } #story.show { display:block; animation:appear .8s ease both; } .petals { position:fixed; inset:0; pointer-events:none; z-index:2; opacity:.35; background-image:radial-gradient(circle at 10% 18%,#579366 0 3px,transparent 4px),radial-gradient(circle at 75% 10%,#d99b8a 0 4px,transparent 5px),radial-gradient(circle at 88% 70%,#579366 0 3px,transparent 4px); }
+    section { width:min(1100px,92%); margin:auto; padding:88px 0; } .hero { min-height:88vh; display:grid; place-items:center; text-align:center; position:relative; } .eyebrow { text-transform:uppercase; letter-spacing:.42em; color:var(--muted); font-size:.76rem; } .hero h1 { font-size:clamp(4rem,10vw,7.4rem); line-height:.9; margin:28px 0; background:linear-gradient(90deg,#47895d,#d99b8a); color:transparent; background-clip:text; } .lead { color:var(--muted); font-size:1.1rem; } .down { margin-top:80px; color:var(--green); font-size:2rem; animation:bob 1.5s infinite; }
+    h2 { font-size:clamp(2.7rem,5vw,4.2rem); text-align:center; margin:8px 0 0; } .sub { text-align:center; color:var(--muted); margin-top:12px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:58px; } .card { background:#fffffff0; border:1px solid #e7ddca; border-radius:38px; padding:38px; box-shadow:0 22px 38px #60956b22; transition:transform .25s,box-shadow .25s; } .card:hover { transform:translateY(-8px); box-shadow:0 26px 45px #60956b33; } .icon { font-size:2.9rem } .card h3 { font-size:2.25rem; margin:20px 0 10px; } .card p { display:none; color:var(--muted); line-height:1.7; } .card.opened p { display:block; } .card small { display:block; margin-top:30px; color:var(--green); letter-spacing:.25em; text-transform:uppercase; }
+    .counter { text-align:center; } .times { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:40px; } .time { background:#fffffff0; border:1px solid #e7ddca; border-radius:28px; padding:25px 8px; } .time b { display:block; font:500 clamp(2.5rem,5vw,4rem) 'Cormorant Garamond'; color:#bd897a; } .time span { color:var(--muted); text-transform:uppercase; letter-spacing:.2em; font-size:.65rem; }
+    .timeline { max-width:760px; } .event { border-left:2px solid #86b88e; padding:0 0 34px 28px; margin-left:25%; position:relative; } .event:before { content:'♥'; position:absolute; left:-12px; top:-5px; width:22px; height:22px; display:grid; place-items:center; border-radius:50%; background:var(--green); color:white; font-size:.6rem; } .event h3 { font-size:1.8rem; margin:0 0 7px; } .event p { color:var(--muted); margin:0; line-height:1.6; }
+    .quiz { max-width:740px; text-align:center; background:#ffffffe6; border:1px solid #e7ddca; border-radius:38px; padding:48px; } .answers { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:28px; } .answers button { border:1px solid #d7e1cf; background:#f7fff4; padding:16px; border-radius:999px; color:var(--ink); } .answers button:hover { background:#dff1de } #feedback { min-height:28px; margin-top:20px; color:var(--green); }
+    .letter { text-align:center; background:#1a1020; color:#fff1e9; border-radius:38px; padding:70px 8%; margin-bottom:80px; } .letter h2 { color:#fff1e9; } .letter p { white-space:pre-line; color:#f0deda; max-width:650px; margin:30px auto 0; line-height:1.85; text-align:left; }
+    footer { text-align:center; padding:35px; color:var(--muted); font-size:.85rem; } @keyframes blink { 50%{opacity:0} } @keyframes bob { 50%{transform:translateY(12px)} } @keyframes appear { from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none} }
+    @media(max-width:700px){ .grid,.times,.answers { grid-template-columns:1fr; } section { padding:64px 0 } .hero { min-height:80vh } .event { margin-left:12px; } .card { border-radius:28px; padding:30px; } }
+  </style>
+</head>
+<body>
+  <main id="welcome"><div><h1 id="typed"></h1><button class="open" id="open">Open your surprise</button></div></main>
+  <main id="story"><div class="petals"></div><section class="hero"><div><p class="eyebrow">for Nyawira</p><h1>Happy Girlfriend's Day ♥</h1><p class="lead">Scroll slowly. All of this was made by hand, and all of it is about you.</p><div class="down">↓</div></div></section>
+  <section><p class="eyebrow" style="text-align:center">three of a thousand</p><h2>Why you're everything</h2><div class="grid">
+    <button class="card reason"><span class="icon">❤️</span><h3>Your Smile</h3><p>It rearranges my whole day. One look at it and whatever I was worried about quietly stops mattering. I'd cross any city just to see it in person.</p><small>Open me</small></button>
+    <button class="card reason"><span class="icon">🌷</span><h3>Your Kindness</h3><p>You are gentle with people in a way the world rarely is. You notice the small things, you remember, you show up. Loving you taught me how to be softer too.</p><small>Open me</small></button>
+    <button class="card reason"><span class="icon">✨</span><h3>Everything About You</h3><p>The laugh, the sleepy voice, the way you tell stories with your hands. Even the parts you think are too much — those are my favourite parts.</p><small>Open me</small></button>
+  </div></section>
+  <section class="counter"><h2>We've been us for</h2><div class="times"><div class="time"><b id="days">0</b><span>days</span></div><div class="time"><b id="hours">0</b><span>hours</span></div><div class="time"><b id="minutes">0</b><span>minutes</span></div><div class="time"><b id="seconds">0</b><span>seconds</span></div></div><p class="sub">…and counting, every second.</p></section>
+  <section class="timeline"><h2>Our little timeline</h2><div style="margin-top:55px"><div class="event"><h3>June 15 — Talking Stage</h3><p>The day we finally said how we felt out loud. Everything started there.</p></div><div class="event"><h3>October 22 — Officially Us</h3><p>Rooftop, after Chinese food, heart in my throat. You said yes.</p></div><div class="event"><h3>Valentine's Day</h3><p>Each other's first. I'll never get another first like that.</p></div><div class="event"><h3>Today ♥</h3><p>Still choosing you, on purpose, every single morning.</p></div></div></section>
+  <section class="quiz"><p class="eyebrow">a tiny quiz</p><h2 id="question">When did we first share our feelings?</h2><div class="answers" id="answers"></div><p id="feedback"></p></section>
+  <section class="letter"><p class="eyebrow">one last thing</p><h2>My favourite future</h2><p>Happy Girlfriend's Day, Nyawira.
+
+I built this instead of buying something because nothing on a shelf could hold how I feel about you. You are my calm and my favourite adventure at the same time.
+
+From a shooting star on Mt. Kenya, to June 15th, to a rooftop on October 22nd — every version of us has been my favourite one yet.
+
+Thank you for every ordinary day you make extraordinary just by being in it. I love you — today, tomorrow, and in every version of the future I can imagine.</p></section></main>
+  <footer>Made with love, for Nyawira ♥</footer>
+  <script>
+    const words=['Hey Nyawira...','I made something just for you.']; let line=0,char=0; const typed=document.querySelector('#typed');
+    function type(){ if(char<words[line].length){typed.innerHTML+=words[line][char++];setTimeout(type,65)}else if(line===0){setTimeout(()=>{line++;char=0;typed.innerHTML='';type()},900)}else typed.innerHTML+='<span class="cursor">|</span>' } type();
+    document.querySelector('#open').onclick=()=>{document.querySelector('#welcome').style.display='none';document.querySelector('#story').classList.add('show');window.scrollTo(0,0)};
+    document.querySelectorAll('.reason').forEach(card=>card.onclick=()=>{card.classList.toggle('opened');card.querySelector('small').textContent=card.classList.contains('opened')?'Close':'Open me'});
+    const start=new Date('2024-10-22T19:30:00').getTime(); function clock(){let d=Math.max(0,Date.now()-start); let v=[Math.floor(d/864e5),Math.floor(d/36e5)%24,Math.floor(d/6e4)%60,Math.floor(d/1e3)%60];['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=v[i])} clock();setInterval(clock,1000);
+    const qs=[{q:'When did we first share our feelings?',a:['June 15th','October 22nd','February 14th',"New Year's Eve"],c:'June 15th',r:'June 15th ♥ — the day the talking stage stopped pretending.'},{q:'What was my first gift to you?',a:['A plushie, a necklace & a bracelet','Perfume','A journal','Flowers'],c:'A plushie, a necklace & a bracelet',r:'A plushie with a necklace and a bracelet — and you still have all three.'}];let qi=0;function render(){let x=qs[qi];document.querySelector('#question').textContent=x.q;document.querySelector('#answers').innerHTML=x.a.map(a=>`<button>${a}</button>`).join('');document.querySelector('#feedback').textContent='';document.querySelectorAll('#answers button').forEach(b=>b.onclick=()=>{document.querySelector('#feedback').textContent=b.textContent===x.c?x.r:'Almost — try another answer ♥';if(b.textContent===x.c)setTimeout(()=>{qi=(qi+1)%qs.length;render()},1600)})}render();
+  </script>
+</body></html>
