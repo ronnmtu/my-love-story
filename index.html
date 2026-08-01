@@ -1,5 +1,6 @@
 ﻿<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,51 +8,876 @@
   <title>Happy Girlfriend's Day, Nyawira ♥</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <style>
-    :root { --ink:#19382a; --muted:#61786b; --mint:#d9f2dc; --cream:#fffdf0; --rose:#d99b8a; --green:#579366; --line:#d8ddc7; }
-    * { box-sizing:border-box } html { scroll-behavior:smooth } body { margin:0; color:var(--ink); font-family:Karla,system-ui,sans-serif; background:linear-gradient(135deg,var(--cream),var(--mint)); } h1,h2,h3 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; } button { font:inherit; cursor:pointer }
-    #welcome { min-height:100vh; display:grid; place-items:center; text-align:center; padding:28px; background:#110913; color:#fff2ea; position:relative; overflow:hidden; }
-    #welcome:before { content:'♥  ✿  ♥  ✿  ♥'; position:absolute; inset:auto 0 8%; color:#d99b8a33; font-size:clamp(2rem,7vw,7rem); letter-spacing:1.5rem; }
-    #welcome h1 { font-size:clamp(2.7rem,6vw,5rem); margin:0; } .cursor { display:inline-block; color:#7cc99a; animation:blink .8s infinite; }
-    .open { margin-top:48px; border:0; border-radius:999px; padding:18px 52px; color:#fff; letter-spacing:.35em; font-size:.73rem; text-transform:uppercase; background:linear-gradient(90deg,#579366,#d99b8a); transition:transform .2s; } .open:hover { transform:scale(1.04) }
-    #story { display:none; overflow:hidden; } #story.show { display:block; animation:appear .8s ease both; } .petals { position:fixed; inset:0; pointer-events:none; z-index:2; opacity:.35; background-image:radial-gradient(circle at 10% 18%,#579366 0 3px,transparent 4px),radial-gradient(circle at 75% 10%,#d99b8a 0 4px,transparent 5px),radial-gradient(circle at 88% 70%,#579366 0 3px,transparent 4px); }
-    section { width:min(1100px,92%); margin:auto; padding:88px 0; } .hero { min-height:88vh; display:grid; place-items:center; text-align:center; position:relative; } .eyebrow { text-transform:uppercase; letter-spacing:.42em; color:var(--muted); font-size:.76rem; } .hero h1 { font-size:clamp(4rem,10vw,7.4rem); line-height:.9; margin:28px 0; background:linear-gradient(90deg,#47895d,#d99b8a); color:transparent; background-clip:text; } .lead { color:var(--muted); font-size:1.1rem; } .down { margin-top:80px; color:var(--green); font-size:2rem; animation:bob 1.5s infinite; }
-    h2 { font-size:clamp(2.7rem,5vw,4.2rem); text-align:center; margin:8px 0 0; } .sub { text-align:center; color:var(--muted); margin-top:12px; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:58px; } .card { background:#fffffff0; border:1px solid #e7ddca; border-radius:38px; padding:38px; box-shadow:0 22px 38px #60956b22; transition:transform .25s,box-shadow .25s; } .card:hover { transform:translateY(-8px); box-shadow:0 26px 45px #60956b33; } .icon { font-size:2.9rem } .card h3 { font-size:2.25rem; margin:20px 0 10px; } .card p { display:none; color:var(--muted); line-height:1.7; } .card.opened p { display:block; } .card small { display:block; margin-top:30px; color:var(--green); letter-spacing:.25em; text-transform:uppercase; }
-    .counter { text-align:center; } .times { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:40px; } .time { background:#fffffff0; border:1px solid #e7ddca; border-radius:28px; padding:25px 8px; } .time b { display:block; font:500 clamp(2.5rem,5vw,4rem) 'Cormorant Garamond'; color:#bd897a; } .time span { color:var(--muted); text-transform:uppercase; letter-spacing:.2em; font-size:.65rem; }
-    .timeline { max-width:760px; } .event { border-left:2px solid #86b88e; padding:0 0 34px 28px; margin-left:25%; position:relative; } .event:before { content:'♥'; position:absolute; left:-12px; top:-5px; width:22px; height:22px; display:grid; place-items:center; border-radius:50%; background:var(--green); color:white; font-size:.6rem; } .event h3 { font-size:1.8rem; margin:0 0 7px; } .event p { color:var(--muted); margin:0; line-height:1.6; }
-    .quiz { max-width:740px; text-align:center; background:#ffffffe6; border:1px solid #e7ddca; border-radius:38px; padding:48px; } .answers { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:28px; } .answers button { border:1px solid #d7e1cf; background:#f7fff4; padding:16px; border-radius:999px; color:var(--ink); } .answers button:hover { background:#dff1de } #feedback { min-height:28px; margin-top:20px; color:var(--green); }
-    .letter { text-align:center; background:#1a1020; color:#fff1e9; border-radius:38px; padding:70px 8%; margin-bottom:80px; } .letter h2 { color:#fff1e9; } .letter p { white-space:pre-line; color:#f0deda; max-width:650px; margin:30px auto 0; line-height:1.85; text-align:left; }
-    footer { text-align:center; padding:35px; color:var(--muted); font-size:.85rem; } @keyframes blink { 50%{opacity:0} } @keyframes bob { 50%{transform:translateY(12px)} } @keyframes appear { from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none} }
-    @media(max-width:700px){ .grid,.times,.answers { grid-template-columns:1fr; } section { padding:64px 0 } .hero { min-height:80vh } .event { margin-left:12px; } .card { border-radius:28px; padding:30px; } }
+    :root {
+      --ink: #19382a;
+      --muted: #61786b;
+      --mint: #d9f2dc;
+      --cream: #fffdf0;
+      --rose: #d99b8a;
+      --green: #579366;
+      --line: #d8ddc7;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Karla, system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--cream), var(--mint));
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 500;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer
+    }
+
+    #welcome {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 28px;
+      background: #110913;
+      color: #fff2ea;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #welcome:before {
+      content: '♥  ✿  ♥  ✿  ♥';
+      position: absolute;
+      inset: auto 0 8%;
+      color: #d99b8a33;
+      font-size: clamp(2rem, 7vw, 7rem);
+      letter-spacing: 1.5rem;
+    }
+
+    #welcome h1 {
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      margin: 0;
+    }
+
+    .cursor {
+      display: inline-block;
+      color: #7cc99a;
+      animation: blink .8s infinite;
+    }
+
+    .open {
+      margin-top: 48px;
+      border: 0;
+      border-radius: 999px;
+      padding: 18px 52px;
+      color: #fff;
+      letter-spacing: .35em;
+      font-size: .73rem;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #579366, #d99b8a);
+      transition: transform .2s;
+    }
+
+    .open:hover {
+      transform: scale(1.04)
+    }
+
+    #story {
+      display: none;
+      overflow: hidden;
+    }
+
+    #story.show {
+      display: block;
+      animation: appear .8s ease both;
+    }
+
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      opacity: .35;
+      background-image: radial-gradient(circle at 10% 18%, #579366 0 3px, transparent 4px), radial-gradient(circle at 75% 10%, #d99b8a 0 4px, transparent 5px), radial-gradient(circle at 88% 70%, #579366 0 3px, transparent 4px);
+    }
+
+    section {
+      width: min(1100px, 92%);
+      margin: auto;
+      padding: 88px 0;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .42em;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 10vw, 7.4rem);
+      line-height: .9;
+      margin: 28px 0;
+      background: linear-gradient(90deg, #47895d, #d99b8a);
+      color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .down {
+      margin-top: 80px;
+      color: var(--green);
+      font-size: 2rem;
+      animation: bob 1.5s infinite;
+    }
+
+    h2 {
+      font-size: clamp(2.7rem, 5vw, 4.2rem);
+      text-align: center;
+      margin: 8px 0 0;
+    }
+
+    .sub {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 58px;
+    }
+
+    .card {
+      background: #fffffff0;
+      border: 1px solid #e7ddca;
+      border-radius: 38px;
+      padding: 38px;
+      box-shadow: 0 22px 38px #60956b22;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 45px #60956b33;
+    }
+
+    .icon {
+      font-size: 2.9rem
+    }
+
+    .card h3 {
+      font-size: 2.25rem;
+      margin: 20px 0 10px;
+    }
+
+    .card p {
+      display: none;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .card.opened p {
+      display: block;
+    }
+
+    .card small {
+      display: block;
+      margin-top: 30px;
+      color: var(--green);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    .counter {
+      text-align: center;
+    }
+
+    .times {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .time {
+      background: #fffffff0;
+      border: 1px solid #e7ddca;
+      border-radius: 28px;
+      padding: 25px 8px;
+    }
+
+    .time b {
+      display: block;
+      font: 500 clamp(2.5rem, 5vw, 4rem) 'Cormorant Garamond';
+      color: #bd897a;
+    }
+
+    .time span {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .65rem;
+    }
+
+    .timeline {
+      max-width: 760px;
+    }
+
+    .event {
+      border-left: 2px solid #86b88e;
+      padding: 0 0 34px 28px;
+      margin-left: 25%;
+      position: relative;
+    }
+
+    .event:before {
+      content: '♥';
+      position: absolute;
+      left: -12px;
+      top: -5px;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: .6rem;
+    }
+
+    .event h3 {
+      font-size: 1.8rem;
+      margin: 0 0 7px;
+    }
+
+    .event p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .quiz {
+      max-width: 740px;
+      text-align: center;
+      background: #ffffffe6;
+      border: 1px solid #e7ddca;
+      border-radius: 38px;
+      padding: 48px;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .answers button {
+      border: 1px solid #d7e1cf;
+      background: #f7fff4;
+      padding: 16px;
+      border-radius: 999px;
+      color: var(--ink);
+    }
+
+    .answers button:hover {
+      background: #dff1de
+    }
+
+    #feedback {
+      min-height: 28px;
+      margin-top: 20px;
+      color: var(--green);
+    }
+
+    .letter {
+      text-align: center;
+      background: #1a1020;
+      color: #fff1e9;
+      border-radius: 38px;
+      padding: 70px 8%;
+      margin-bottom: 80px;
+    }
+
+    .letter h2 {
+      color: #fff1e9;
+    }
+
+    .letter p {
+      white-space: pre-line;
+      color: #f0deda;
+      max-width: 650px;
+      margin: 30px auto 0;
+      line-height: 1.85;
+      text-align: left;
+    }
+
+    .gift {
+      text-align: center;
+      padding-bottom: 100px;
+    }
+
+    .giftbox {
+      width: 190px;
+      height: 190px;
+      border: 1px solid #e7ddca;
+      border-radius: 34px;
+      background: #fffffff0;
+      box-shadow: 0 22px 38px #60956b22;
+      font-size: 5.2rem;
+      transition: transform .25s;
+    }
+
+    .giftbox:hover {
+      transform: scale(1.06) rotate(2deg);
+    }
+
+    .gift .hint {
+      color: var(--muted);
+      letter-spacing: .28em;
+      font-size: .72rem;
+      text-transform: uppercase;
+    }
+
+    .letter[hidden] {
+      display: none;
+    }
+
+    .love-button {
+      margin-top: 28px;
+      border: 0;
+      border-radius: 999px;
+      padding: 16px 34px;
+      background: linear-gradient(90deg, #579366, #d99b8a);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .74rem;
+    }
+
+    .toolbar {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 12px;
+      z-index: 1000;
+    }
+
+    .toolbar button {
+      width: 55px;
+      height: 55px;
+      border: none;
+      border-radius: 50%;
+      background: #579366;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+      transition: .3s;
+    }
+
+    .toolbar button:hover {
+      transform: scale(1.08);
+    }
+
+    body.dark {
+      background: #111;
+      color: white;
+    }
+
+    body.dark .card {
+      background: #222;
+      border-color: #333;
+      color: white;
+    }
+
+    body.dark .time {
+      background: #222;
+      color: white;
+    }
+
+    body.dark .letter {
+      background: #000;
+    }
+
+    body.dark .track {
+      background: #222;
+      color: white;
+    }
+
+    body.dark .quiz {
+      background: #1b1b1b;
+      border-color: #333;
+    }
+
+    body.dark .polaroid {
+      background: #222;
+      color: white;
+    }
+
+    body.dark .giftbox {
+      background: #222;
+      color: white;
+    }
+
+    body.dark footer {
+      color: #ddd;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .polaroid {
+      border: none;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 0;
+      cursor: pointer;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+      transition: .3s;
+    }
+
+    .polaroid:hover {
+      transform: translateY(-8px);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .polaroid span {
+      display: block;
+      padding: 18px;
+      font-weight: 600;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .85);
+      display: grid;
+      place-items: center;
+      z-index: 2000;
+    }
+
+    .lightbox[hidden] {
+      display: none;
+    }
+
+    .lightbox img {
+      width: min(90vw, 700px);
+      max-height: 80vh;
+      border-radius: 18px;
+    }
+
+    .lightbox figcaption {
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .playlist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    .track {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #ffffff, #f8fff8);
+      color: #19382a;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+      transition: .35s;
+    }
+
+    .track:hover {
+
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, .15);
+
+    }
+
+    .track b {
+
+      font-size: 1.2rem;
+
+    }
+
+    .track span {
+
+      color: #579366;
+
+    }
+
+    .burst {
+      position: fixed;
+      bottom: -40px;
+      z-index: 10;
+      pointer-events: none;
+      color: #d77988;
+      animation: float 3s ease-in forwards;
+    }
+
+    .cursor-heart {
+      position: fixed;
+      pointer-events: none;
+      animation: heartFloat 1.2s forwards;
+      color: #ff5a8a;
+      font-size: 20px;
+      z-index: 5000;
+    }
+
+    @keyframes heartFloat {
+
+      to {
+        transform: translateY(-40px);
+        opacity: 0;
+      }
+
+    }
+
+    @keyframes float {
+      to {
+        transform: translate(var(--x), -110vh) rotate(400deg);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0
+      }
+    }
+
+    @keyframes bob {
+      50% {
+        transform: translateY(12px)
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @media(max-width:700px) {
+
+      .grid,
+      .times,
+      .answers {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 64px 0
+      }
+
+      .hero {
+        min-height: 80vh
+      }
+
+      .event {
+        margin-left: 12px;
+      }
+
+      .card {
+        border-radius: 28px;
+        padding: 30px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <main id="welcome"><div><h1 id="typed"></h1><button class="open" id="open">Open your surprise</button></div></main>
-  <main id="story"><div class="petals"></div><section class="hero"><div><p class="eyebrow">for Nyawira</p><h1>Happy Girlfriend's Day ♥</h1><p class="lead">Scroll slowly. All of this was made by hand, and all of it is about you.</p><div class="down">↓</div></div></section>
-  <section><p class="eyebrow" style="text-align:center">three of a thousand</p><h2>Why you're everything</h2><div class="grid">
-    <button class="card reason"><span class="icon">❤️</span><h3>Your Smile</h3><p>It rearranges my whole day. One look at it and whatever I was worried about quietly stops mattering. I'd cross any city just to see it in person.</p><small>Open me</small></button>
-    <button class="card reason"><span class="icon">🌷</span><h3>Your Kindness</h3><p>You are gentle with people in a way the world rarely is. You notice the small things, you remember, you show up. Loving you taught me how to be softer too.</p><small>Open me</small></button>
-    <button class="card reason"><span class="icon">✨</span><h3>Everything About You</h3><p>The laugh, the sleepy voice, the way you tell stories with your hands. Even the parts you think are too much — those are my favourite parts.</p><small>Open me</small></button>
-  </div></section>
-  <section class="counter"><h2>We've been us for</h2><div class="times"><div class="time"><b id="days">0</b><span>days</span></div><div class="time"><b id="hours">0</b><span>hours</span></div><div class="time"><b id="minutes">0</b><span>minutes</span></div><div class="time"><b id="seconds">0</b><span>seconds</span></div></div><p class="sub">…and counting, every second.</p></section>
-  <section class="timeline"><h2>Our little timeline</h2><div style="margin-top:55px"><div class="event"><h3>June 15 — Talking Stage</h3><p>The day we finally said how we felt out loud. Everything started there.</p></div><div class="event"><h3>October 22 — Officially Us</h3><p>Rooftop, after Chinese food, heart in my throat. You said yes.</p></div><div class="event"><h3>Valentine's Day</h3><p>Each other's first. I'll never get another first like that.</p></div><div class="event"><h3>Today ♥</h3><p>Still choosing you, on purpose, every single morning.</p></div></div></section>
-  <section class="quiz"><p class="eyebrow">a tiny quiz</p><h2 id="question">When did we first share our feelings?</h2><div class="answers" id="answers"></div><p id="feedback"></p></section>
-  <section class="letter"><p class="eyebrow">one last thing</p><h2>My favourite future</h2><p>Happy Girlfriend's Day, Nyawira.
+  <main id="welcome">
+    <div>
+      <h1 id="typed"></h1><button class="open" id="open">Open your surprise</button>
+    </div>
+  </main>
+  <div class="toolbar"><button id="music" aria-label="Play music">♫</button><button id="theme"
+      aria-label="Toggle dark mode">☾</button></div>
+  <main id="story">
+    <div class="petals"></div>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">for Nyawira</p>
+        <h1>Happy Girlfriend's Day ♥</h1>
+        <p class="lead">Scroll slowly. All of this was made by hand, and all of it is about you.</p>
+        <div class="down">↓</div>
+      </div>
+    </section>
+    <section>
+      <p class="eyebrow" style="text-align:center">three of a thousand</p>
+      <h2>Why you're everything</h2>
+      <div class="grid">
+        <button class="card reason"><span class="icon">❤️</span>
+          <h3>Your Smile</h3>
+          <p>It rearranges my whole day. One look at it and whatever I was worried about quietly stops mattering. I'd
+            cross any city just to see it in person.</p><small>Open me</small>
+        </button>
+        <button class="card reason"><span class="icon">🌷</span>
+          <h3>Your Kindness</h3>
+          <p>You are gentle with people in a way the world rarely is. You notice the small things, you remember, you
+            show up. Loving you taught me how to be softer too.</p><small>Open me</small>
+        </button>
+        <button class="card reason"><span class="icon">✨</span>
+          <h3>Everything About You</h3>
+          <p>The laugh, your hands, the way you tell stories with passion. Even the parts you think are too much — those
+            are my favourite parts.</p><small>Open me</small>
+        </button>
+      </div>
+    </section>
+    <section class="counter">
+      <h2>We've been us for</h2>
+      <div class="times">
+        <div class="time"><b id="days">0</b><span>days</span></div>
+        <div class="time"><b id="hours">0</b><span>hours</span></div>
+        <div class="time"><b id="minutes">0</b><span>minutes</span></div>
+        <div class="time"><b id="seconds">0</b><span>seconds</span></div>
+      </div>
+      <p class="sub">…and counting, every second.</p>
+    </section>
+    <section>
+      <p class="eyebrow" style="text-align:center">tap a photo for the story behind it</p>
+      <h2>Moments I keep</h2>
+      <div class="gallery" id="gallery"></div>
+    </section>
+    <div class="lightbox" id="lightbox" hidden>
+      <figure><img id="lightboxImage" alt="A treasured memory" />
+        <figcaption id="lightboxCaption"></figcaption>
+      </figure>
+    </div>
+    <section class="timeline">
+      <h2>Our little timeline</h2>
+      <div style="margin-top:55px">
+        <div class="event">
+          <h3>June 15 — Talking Stage</h3>
+          <p>The day we finally said how we felt for each other</p>
+        </div>
+        <div class="event">
+          <h3>October 22 — Officially Us</h3>
+          <p>Rooftop, after Chinese food, heart in my throat. You said yes.</p>
+        </div>
+        <div class="event">
+          <h3>Valentine's Day</h3>
+          <p>Each other's first. I'll never get another first like that.</p>
+        </div>
+        <div class="event">
+          <h3>Today ♥</h3>
+          <p>Still choosing you, on purpose, every single morning.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <p class="eyebrow" style="text-align:center">press play, I’ll wait</p>
+      <h2>A playlist for you</h2>
+      <p class="sub">Hails is my quiet obsession and I've been saving them for you. Dayglow is for the drives.</p>
+      <div class="playlist"><a class="track" target="_blank"
+          href="https://www.youtube.com/results?search_query=Hails+Younger"><b>▶ Younger</b><span>Hails</span></a><a
+          class="track" target="_blank" href="https://www.youtube.com/results?search_query=Hails+Exonerate"><b>▶
+            Exonerate</b><span>Hails</span></a><a class="track" target="_blank"
+          href="https://www.youtube.com/results?search_query=Hails+Stay"><b>▶ Stay</b><span>Hails</span></a><a
+          class="track" target="_blank"
+          href="https://www.youtube.com/results?search_query=Dayglow+Can+I+Call+You+Tonight"><b>▶ Can I Call You
+            Tonight?</b><span>Dayglow</span></a></div>
+    </section>
+    <section class="quiz">
+      <p class="eyebrow">A tiny quiz</p>
+      <h2 id="question">When did we first share our feelings?</h2>
+      <div class="answers" id="answers"></div>
+      <p id="feedback"></p>
+    </section>
+    <section class="gift"><button class="giftbox" id="gift" aria-label="Open your gift">🎁</button>
+      <p class="hint">one more thing — open it</p>
+    </section>
+    <section class="letter" id="letter" hidden>
+      <p class="eyebrow">one last thing</p>
+      <h2 id="letterTitle"></h2>
+      <p>Happy Girlfriend's Day, Nyawira.
 
-I built this instead of buying something because nothing on a shelf could hold how I feel about you. You are my calm and my favourite adventure at the same time.
+        I built this instead of buying something because nothing on a shelf could hold how I feel about you. You are my
+        calm and my favourite adventure at the same time.
 
-From a shooting star on Mt. Kenya, to June 15th, to a rooftop on October 22nd — every version of us has been my favourite one yet.
+        From a shooting star on Mt. Kenya, to June 15th, to a rooftop on October 22nd — every version of us has been my
+        favourite one yet.
 
-Thank you for every ordinary day you make extraordinary just by being in it. I love you — today, tomorrow, and in every version of the future I can imagine.</p></section></main>
+        Thank you for every ordinary day you make extraordinary just by being in it. I love you — today, tomorrow, and
+        in every version of the future I can imagine.</p><button class="love-button" id="love">I Love You ♥</button>
+      <p id="loveReply" class="sub"></p>
+    </section>
+  </main>
   <footer>Made with love, for Nyawira ♥</footer>
   <script>
-    const words=['Hey Nyawira...','I made something just for you.']; let line=0,char=0; const typed=document.querySelector('#typed');
-    function type(){ if(char<words[line].length){typed.innerHTML+=words[line][char++];setTimeout(type,65)}else if(line===0){setTimeout(()=>{line++;char=0;typed.innerHTML='';type()},900)}else typed.innerHTML+='<span class="cursor">|</span>' } type();
-    document.querySelector('#open').onclick=()=>{document.querySelector('#welcome').style.display='none';document.querySelector('#story').classList.add('show');window.scrollTo(0,0)};
-    document.querySelectorAll('.reason').forEach(card=>card.onclick=()=>{card.classList.toggle('opened');card.querySelector('small').textContent=card.classList.contains('opened')?'Close':'Open me'});
-    const start=new Date('2024-10-22T19:30:00').getTime(); function clock(){let d=Math.max(0,Date.now()-start); let v=[Math.floor(d/864e5),Math.floor(d/36e5)%24,Math.floor(d/6e4)%60,Math.floor(d/1e3)%60];['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=v[i])} clock();setInterval(clock,1000);
-    const qs=[{q:'When did we first share our feelings?',a:['June 15th','October 22nd','February 14th',"New Year's Eve"],c:'June 15th',r:'June 15th ♥ — the day the talking stage stopped pretending.'},{q:'What was my first gift to you?',a:['A plushie, a necklace & a bracelet','Perfume','A journal','Flowers'],c:'A plushie, a necklace & a bracelet',r:'A plushie with a necklace and a bracelet — and you still have all three.'}];let qi=0;function render(){let x=qs[qi];document.querySelector('#question').textContent=x.q;document.querySelector('#answers').innerHTML=x.a.map(a=>`<button>${a}</button>`).join('');document.querySelector('#feedback').textContent='';document.querySelectorAll('#answers button').forEach(b=>b.onclick=()=>{document.querySelector('#feedback').textContent=b.textContent===x.c?x.r:'Almost — try another answer ♥';if(b.textContent===x.c)setTimeout(()=>{qi=(qi+1)%qs.length;render()},1600)})}render();
-  </script>
-</body></html>
+    const words = ['Hey Nyawira...', 'I made something just for you.']; let line = 0, char = 0; const typed = document.querySelector('#typed');
+    function type() { if (char < words[line].length) { typed.innerHTML += words[line][char++]; setTimeout(type, 65) } else if (line === 0) { setTimeout(() => { line++; char = 0; typed.innerHTML = ''; type() }, 900) } else typed.innerHTML += '<span class="cursor">|</span>' } type();
+    document.querySelector('#open').onclick = () => { document.querySelector('#welcome').style.display = 'none'; document.querySelector('#story').classList.add('show'); window.scrollTo(0, 0) };
+    document.querySelectorAll('.reason').forEach(card => card.onclick = () => { card.classList.toggle('opened'); card.querySelector('small').textContent = card.classList.contains('opened') ? 'Close' : 'Open me' });
+    const start = new Date('2024-10-22T19:30:00').getTime(); function clock() { let d = Math.max(0, Date.now() - start); let v = [Math.floor(d / 864e5), Math.floor(d / 36e5) % 24, Math.floor(d / 6e4) % 60, Math.floor(d / 1e3) % 60];['days', 'hours', 'minutes', 'seconds'].forEach((id, i) => document.getElementById(id).textContent = v[i]) } clock(); setInterval(clock, 1000);
+    const quiz = [
+      { q: 'When did we first share our feelings?', a: ['June 15th', 'October 22nd', 'February 14th', "New Year's Eve"], c: 'June 15th', r: 'June 15th ♥ — the day the talking stage stopped pretending.' },
+      { q: 'What was my first gift to you?', a: ['A plushie, a necklace & a bracelet', 'Perfume', 'A journal', 'Flowers'], c: 'A plushie, a necklace & a bracelet', r: 'A plushie with a necklace and a bracelet — and you still have all three.' },
+      { q: 'What was your first gift to me?', a: ['Perfume, a sudoku book & a journal', 'A watch', 'A plushie', 'Chocolate'], c: 'Perfume, a sudoku book & a journal', r: 'Perfume, a sudoku book and a journal. You knew me too well already.' },
+      { q: 'What was my very first nickname for you?', a: ['Nyams', 'Nyamburu', 'Little jar of ashes'], c: 'Nyams', r: 'Nyams ♥ — the first of many, and still the softest one.' }
+    ]; let qi = 0, chosen = [], locked = false;
+    function renderQuiz() {
+      const x = quiz[qi], question = document.querySelector('#question'), answers = document.querySelector('#answers'), feedback = document.querySelector('#feedback'); if (qi === quiz.length) { question.textContent = `${chosen.filter((a, i) => a === quiz[i].c).length}/${quiz.length} ♥`; answers.innerHTML = '<button id="again">Try again</button>'; feedback.textContent = 'Perfect score or not — you are still my favourite answer.'; document.querySelector('#again').onclick = () => { qi = 0; chosen = []; renderQuiz() }; return } question.textContent = `Question ${qi + 1} of ${quiz.length}: ${x.q}`; feedback.textContent = ''; answers.innerHTML = x.a.map(a => `<button>${a}</button>`).join(''); document.querySelectorAll('#answers button').forEach(b => b.onclick = () => {
+        if (locked) return; locked = true; let picked = b.textContent; chosen.push(picked); document.querySelectorAll('#answers button').forEach(z => { if (z.textContent === x.c) z.style.background = '#dff1de'; else if (z === b) z.style.background = '#f4dddd' }); feedback.textContent = picked === x.c ? x.r : `Almost — ${x.r}`;
+
+        // Remove any existing Next button
+        document.querySelector("#nextQuiz")?.remove();
+
+        const next = document.createElement("button");
+        next.id = "nextQuiz";
+        next.className = "love-button";
+        next.textContent = qi === quiz.length - 1 ? "Finish" : "Next";
+
+        next.onclick = () => {
+          qi++;
+          locked = false;
+          renderQuiz();
+        };
+
+        feedback.after(next);
+      })
+    }
+
+    renderQuiz();
+    document.querySelector('#gift').onclick = () => {
+      document.querySelector('#gift').parentElement.style.display = 'none';
+      let letter = document.querySelector('#letter');
+      letter.hidden = false;
+      letter.scrollIntoView({ behavior: 'smooth' }); let text = "Happy Girlfriend's Day ♥", i = 0, target = document.querySelector('#letterTitle'); let timer = setInterval(() => { target.textContent = text.slice(0, ++i); if (i === text.length) clearInterval(timer) }, 65)
+    };
+    function hearts() { for (let i = 0; i < 50; i++) { let h = document.createElement('span'); h.className = 'burst'; h.textContent = '♥'; h.style.left = Math.random() * 100 + 'vw'; h.style.fontSize = (14 + Math.random() * 28) + 'px'; h.style.setProperty('--x', (Math.random() * 200 - 100) + 'px'); document.body.appendChild(h); setTimeout(() => h.remove(), 3200) } } document.querySelector('#love').onclick = () => { hearts(); document.querySelector('#loveReply').textContent = 'Cant wait to see you!!' };
+    const memories = [
+      { image: "images/WhatsApp Image 2026-03-26 at 15.30.52(1).jpeg", caption: 'Tongues out' },
+      { image: "images/WhatsApp Image 2026-08-01 at 10.34.43 (1).jpeg", caption: 'Just us being us' },
+      { image: "images/IMG_20250802_214853_029.jpg", caption: 'Whos this?' },
+      { image: "images/WhatsApp Image 2026-08-01 at 10.34.46 (2).jpeg", caption: 'Golden hour on you' },
+      { image: "images/WhatsApp Image 2026-08-01 at 10.35.19 (2).jpeg", caption: 'Late night memories' },
+      { image: "images/IMG_20250802_213014_544.jpg", caption: 'A pretty smile' },
+      { image: "images/WhatsApp Image 2026-08-01 at 10.34.42.jpeg", caption: 'Kitchen queen' },
+      { image: "images/WIN_20250508_20_55_26_Pro.jpg", caption: 'Night Prep silliness' },
+      { image: "images/IMG_20250802_213726_807.jpg", caption: 'Sunshine looks good on you' },
+      { image: "images/WhatsApp Image 2026-08-01 at 10.34.45 (3).jpeg", caption: 'The little details I adore' },
+      { image: "images/WhatsApp Image 2026-08-01 at 10.35.16 (2).jpeg", caption: 'Beautiful, always' },
+      { image: "images/WhatsApp Image 2026-08-01 at 10.35.21 (2).jpeg", caption: 'Simply stunning' }
+    ];
+    const gallery = document.querySelector("#gallery");
+    const lightbox = document.querySelector("#lightbox");
+    const lightboxImage = document.querySelector("#lightboxImage");
+    const lightboxCaption = document.querySelector("#lightboxCaption");
+
+    memories.forEach(memory => {
+
+      const card = document.createElement("button");
+      card.className = "polaroid";
+
+      card.innerHTML = `
+        <img src="${memory.image}" alt="${memory.caption}">
+        <span>${memory.caption}</span>
+    `;
+
+      card.onclick = () => {
+        lightboxImage.src = memory.image;
+        lightboxCaption.textContent = memory.caption;
+        lightbox.hidden = false;
+      };
+
+      gallery.appendChild(card);
+
+    });
+
+    lightbox.onclick = () => lightbox.hidden = true;
+
+    addEventListener("keydown", e => {
+      if (e.key === "Escape") lightbox.hidden = true;
+    });
+
+    const audio = new Audio("music/nafeesisboujee - spin u round (Lyrics) - (320 Kbps).mp3");
+    audio.loop = true;
+
+    const musicBtn = document.querySelector("#music");
+
+    musicBtn.onclick = () => {
+
+      if (audio.paused) {
+
+        audio.play();
+        musicBtn.textContent = "❚❚";
+
+      } else {
+
+        audio.pause();
+        musicBtn.textContent = "♫";
+
+      }
+
+    }
+
+    document.querySelector('#theme').onclick = () => { document.body.classList.toggle('dark'); document.querySelector('#theme').textContent = document.body.classList.contains('dark') ? '☀' : '☾' };
+
+    let lastHeart = 0; addEventListener('pointermove', e => { if (performance.now() - lastHeart < 110) return; lastHeart = performance.now(); let h = document.createElement('span'); h.className = 'cursor-heart'; h.textContent = '♥'; h.style.left = e.clientX + 'px'; h.style.top = e.clientY + 'px'; document.body.appendChild(h); setTimeout(() => h.remove(), 1200) });  </script>
+</body>
+
+</html>
