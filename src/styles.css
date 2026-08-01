@@ -34,6 +34,7 @@
   --color-rose-gold: var(--rose-gold);
   --color-blush: var(--blush);
   --color-cream: var(--cream);
+  --color-sage: var(--sage);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
   --font-hand: "Caveat", cursive;
@@ -41,34 +42,35 @@
 
 :root {
   --radius: 1.25rem;
-  --background: oklch(0.985 0.012 60);
-  --foreground: oklch(0.34 0.05 15);
-  --card: oklch(0.995 0.008 40);
-  --card-foreground: oklch(0.34 0.05 15);
-  --popover: oklch(0.995 0.008 40);
-  --popover-foreground: oklch(0.34 0.05 15);
-  --primary: oklch(0.68 0.13 12);
-  --primary-foreground: oklch(0.99 0.008 40);
-  --secondary: oklch(0.94 0.03 20);
-  --secondary-foreground: oklch(0.4 0.07 15);
-  --muted: oklch(0.95 0.02 40);
-  --muted-foreground: oklch(0.55 0.04 20);
-  --accent: oklch(0.86 0.07 45);
-  --accent-foreground: oklch(0.34 0.05 15);
+  --background: oklch(0.985 0.014 140);
+  --foreground: oklch(0.3 0.045 155);
+  --card: oklch(0.995 0.008 140);
+  --card-foreground: oklch(0.3 0.045 155);
+  --popover: oklch(0.995 0.008 140);
+  --popover-foreground: oklch(0.3 0.045 155);
+  --primary: oklch(0.56 0.1 155);
+  --primary-foreground: oklch(0.99 0.01 140);
+  --secondary: oklch(0.93 0.035 150);
+  --secondary-foreground: oklch(0.35 0.06 155);
+  --muted: oklch(0.94 0.022 145);
+  --muted-foreground: oklch(0.5 0.035 155);
+  --accent: oklch(0.84 0.07 20);
+  --accent-foreground: oklch(0.3 0.045 155);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0.005 40);
-  --border: oklch(0.9 0.03 30);
-  --input: oklch(0.9 0.03 30);
-  --ring: oklch(0.75 0.09 15);
-  --rose-gold: oklch(0.76 0.08 45);
+  --border: oklch(0.89 0.03 150);
+  --input: oklch(0.89 0.03 150);
+  --ring: oklch(0.68 0.09 155);
+  --rose-gold: oklch(0.74 0.09 30);
+  --sage: oklch(0.78 0.06 150);
   --blush: oklch(0.92 0.045 15);
-  --cream: oklch(0.98 0.018 70);
+  --cream: oklch(0.98 0.018 100);
 
   --gradient-dawn: linear-gradient(
     160deg,
-    oklch(0.98 0.018 70) 0%,
-    oklch(0.94 0.04 20) 55%,
-    oklch(0.9 0.05 35) 100%
+    oklch(0.98 0.02 100) 0%,
+    oklch(0.94 0.04 145) 55%,
+    oklch(0.9 0.05 160) 100%
   );
   --gradient-rose: linear-gradient(120deg, var(--primary), var(--rose-gold));
   --shadow-soft: 0 20px 50px -24px color-mix(in oklab, var(--primary) 45%, transparent);
@@ -76,31 +78,32 @@
 }
 
 .dark {
-  --background: oklch(0.19 0.03 300);
-  --foreground: oklch(0.95 0.015 40);
-  --card: oklch(0.24 0.035 300);
-  --card-foreground: oklch(0.95 0.015 40);
-  --popover: oklch(0.24 0.035 300);
-  --popover-foreground: oklch(0.95 0.015 40);
-  --primary: oklch(0.78 0.11 12);
-  --primary-foreground: oklch(0.2 0.03 300);
-  --secondary: oklch(0.3 0.04 300);
-  --secondary-foreground: oklch(0.95 0.015 40);
-  --muted: oklch(0.3 0.04 300);
-  --muted-foreground: oklch(0.75 0.03 40);
-  --accent: oklch(0.4 0.06 320);
-  --accent-foreground: oklch(0.96 0.015 40);
+  --background: oklch(0.19 0.03 165);
+  --foreground: oklch(0.95 0.015 120);
+  --card: oklch(0.24 0.035 165);
+  --card-foreground: oklch(0.95 0.015 120);
+  --popover: oklch(0.24 0.035 165);
+  --popover-foreground: oklch(0.95 0.015 120);
+  --primary: oklch(0.78 0.11 155);
+  --primary-foreground: oklch(0.2 0.03 165);
+  --secondary: oklch(0.3 0.04 165);
+  --secondary-foreground: oklch(0.95 0.015 120);
+  --muted: oklch(0.3 0.04 165);
+  --muted-foreground: oklch(0.76 0.03 130);
+  --accent: oklch(0.42 0.06 30);
+  --accent-foreground: oklch(0.96 0.015 120);
   --border: oklch(1 0 0 / 14%);
   --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.7 0.09 12);
-  --rose-gold: oklch(0.82 0.08 60);
+  --ring: oklch(0.7 0.09 155);
+  --rose-gold: oklch(0.82 0.08 45);
+  --sage: oklch(0.6 0.07 150);
   --blush: oklch(0.4 0.06 340);
-  --cream: oklch(0.28 0.04 300);
+  --cream: oklch(0.28 0.04 165);
   --gradient-dawn: linear-gradient(
     160deg,
-    oklch(0.19 0.03 300) 0%,
-    oklch(0.24 0.05 320) 60%,
-    oklch(0.3 0.06 340) 100%
+    oklch(0.18 0.03 165) 0%,
+    oklch(0.23 0.05 155) 60%,
+    oklch(0.28 0.055 140) 100%
   );
 }
 
