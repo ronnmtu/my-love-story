@@ -16,9 +16,8 @@ export default defineConfig({
   vite: {
     base: isGitHubPagesBuild ? `/${repositoryName}/` : "/",
   },
-  ...(isGitHubPagesBuild ? { nitro: { preset: "github-pages" } } : {}),
   tanstackStart: {
-    prerender: { enabled: isGitHubPagesBuild },
+    spa: { enabled: isGitHubPagesBuild },
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
