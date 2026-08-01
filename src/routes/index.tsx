@@ -5,6 +5,8 @@ import { love } from "@/lib/love-config";
 import { CursorHearts, FallingPetals, Reveal, Typewriter, useBursts } from "@/components/love/effects";
 import { MusicToggle } from "@/components/love/music";
 import {
+  DateRanking,
+  FunFacts,
   GiftFinale,
   LoveCounter,
   LoveQuiz,
