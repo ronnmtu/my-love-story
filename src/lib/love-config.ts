@@ -132,6 +132,53 @@ export const love = {
     { emoji: "🧸", text: "A plushie, a necklace and a bracelet started the gift-giving war. You won with a sudoku book." },
   ],
 
+  /** The little playlist — songs I want you to hear. */
+  playlist: {
+    title: "A playlist for you",
+    subtitle: "press play, I'll wait",
+    note: "Hails is my quiet obsession and I've been saving them for you. Day Glow is for the drives.",
+    tracks: [
+      {
+        title: "Younger",
+        artist: "Hails",
+        why: "This one sounds like the way June felt.",
+        url: "https://www.youtube.com/results?search_query=Hails+Younger",
+      },
+      {
+        title: "Exonerate",
+        artist: "Hails",
+        why: "Play it loud with the windows down. Trust me.",
+        url: "https://www.youtube.com/results?search_query=Hails+Exonerate",
+      },
+      {
+        title: "Stay",
+        artist: "Hails",
+        why: "The title is basically my whole request.",
+        url: "https://www.youtube.com/results?search_query=Hails+Stay",
+      },
+      {
+        title: "Can I Call You Tonight?",
+        artist: "Dayglow",
+        why: "Because I always want to. Every night.",
+        url: "https://www.youtube.com/results?search_query=Dayglow+Can+I+Call+You+Tonight",
+      },
+    ],
+  },
+
+  /** Countdown to the next June 15 — the day we said it out loud. */
+  countdown: {
+    label: "Counting down to June 15",
+    note: "the day we first said how we felt — our other anniversary",
+    month: 6,
+    day: 15,
+  },
+
+  share: {
+    title: "Happy Girlfriend's Day, Nyawira ❤️",
+    text: "I made you a whole little world. Open it.",
+  },
+
+
   finalLetter: `Happy Girlfriend's Day, Nyawira.
 
 I built this instead of buying something because nothing on a shelf could hold how I feel about you. You are my calm and my favourite adventure at the same time.
