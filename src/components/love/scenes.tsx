@@ -445,3 +445,133 @@ export function GiftFinale({ onLove }: { onLove: () => void }) {
     </section>
   );
 }
+
+export function JuneCountdown() {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const { month, day, label, note } = love.countdown;
+  const current = new Date(now);
+  let target = new Date(current.getFullYear(), month - 1, day, 0, 0, 0);
+  if (target.getTime() <= now) target = new Date(current.getFullYear() + 1, month - 1, day, 0, 0, 0);
+
+  const diff = Math.max(0, target.getTime() - now);
+  const cells = [
+    { v: Math.floor(diff / 86400000), l: "days" },
+    { v: Math.floor(diff / 3600000) % 24, l: "hours" },
+    { v: Math.floor(diff / 60000) % 60, l: "minutes" },
+    { v: Math.floor(diff / 1000) % 60, l: "seconds" },
+  ];
+
+  return (
+    <section className="mx-auto w-full max-w-3xl px-6 py-24 text-center">
+      <Reveal>
+        <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground">{note}</p>
+        <h2 className="mt-3 text-4xl sm:text-5xl">{label}</h2>
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {cells.map((c) => (
+            <div key={c.l} className="glass-card rounded-3xl px-3 py-6">
+              <div className="text-rose-gradient font-[family-name:var(--font-display)] text-4xl tabular-nums sm:text-5xl">
+                {c.v}
+              </div>
+              <div className="mt-1 text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
+                {c.l}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+export function Playlist() {
+  return (
+    <section className="mx-auto w-full max-w-4xl px-6 py-24">
+      <Reveal>
+        <p className="text-center text-xs uppercase tracking-[0.35em] text-muted-foreground">
+          {love.playlist.subtitle}
+        </p>
+        <h2 className="mt-3 text-center text-4xl sm:text-5xl">{love.playlist.title}</h2>
+        <p className="mx-auto mt-4 max-w-md text-center text-sm leading-7 text-muted-foreground">
+          {love.playlist.note}
+        </p>
+      </Reveal>
+
+      <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        {love.playlist.tracks.map((t, i) => (
+          <Reveal key={t.title} delay={i * 90}>
+            <a
+              href={t.url}
+              target="_blank"
+              rel="noreferrer"
+              className="glass-card flex h-full items-start gap-4 rounded-3xl p-6 transition-transform duration-500 hover:-translate-y-1"
+            >
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[image:var(--gradient-rose)] text-primary-foreground">
+                ▶
+              </span>
+              <span className="flex-1">
+                <span className="block text-xl">{t.title}</span>
+                <span className="block text-xs uppercase tracking-[0.25em] text-primary">
+                  {t.artist}
+                </span>
+                <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+                  {t.why}
+                </span>
+              </span>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function ShareCard() {
+  const [copied, setCopied] = useState(false);
+
+  const share = async () => {
+    const url = window.location.href;
+    const data = { title: love.share.title, text: love.share.text, url };
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+        return;
+      } catch {
+        /* fall through to copy */
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  return (
+    <section className="mx-auto w-full max-w-2xl px-6 pb-8 text-center">
+      <Reveal>
+        <div className="glass-card rounded-[2rem] p-8">
+          <h2 className="text-3xl">Keep this forever</h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Send this page to yourself — it lives at the same link, always.
+          </p>
+          <button
+            type="button"
+            onClick={share}
+            className="mt-6 rounded-full bg-[image:var(--gradient-rose)] px-8 py-3 text-xs uppercase tracking-[0.25em] text-primary-foreground shadow-[var(--shadow-lift)] transition-transform hover:scale-105"
+          >
+            {copied ? "Link copied ❤️" : "Share this page"}
+          </button>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
