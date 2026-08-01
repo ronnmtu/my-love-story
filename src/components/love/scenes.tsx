@@ -260,19 +260,18 @@ export function FunFacts() {
 export function LoveQuiz({ onCorrect }: { onCorrect: () => void }) {
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
-  const [score, setScore] = useState(0);
+  const [answers, setAnswers] = useState<string[]>([]);
   const [done, setDone] = useState(false);
 
   const q = love.quiz.questions[step]!;
   const total = love.quiz.questions.length;
+  const score = answers.filter((a, i) => a === love.quiz.questions[i]?.correct).length;
 
   const choose = (a: string) => {
     if (picked) return;
     setPicked(a);
-    if (a === q.correct) {
-      setScore((s) => s + 1);
-      onCorrect();
-    }
+    setAnswers((prev) => [...prev.slice(0, step), a]);
+    if (a === q.correct) onCorrect();
   };
 
   const next = () => {
@@ -285,19 +284,58 @@ export function LoveQuiz({ onCorrect }: { onCorrect: () => void }) {
     }
   };
 
+  const restart = () => {
+    setStep(0);
+    setPicked(null);
+    setAnswers([]);
+    setDone(false);
+  };
+
   return (
     <section className="mx-auto w-full max-w-2xl px-6 py-24 text-center">
       <Reveal>
         <div className="glass-card rounded-[2rem] p-10">
           {done ? (
             <>
-              <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground">all done</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground">your results</p>
               <h2 className="mt-4 text-3xl sm:text-4xl">
                 {score}/{total} ❤️
               </h2>
-              <p className="mt-6 font-[family-name:var(--font-hand)] text-2xl text-primary">
+
+              <ul className="mt-8 space-y-3 text-left">
+                {love.quiz.questions.map((question, i) => {
+                  const given = answers[i];
+                  const right = given === question.correct;
+                  return (
+                    <li
+                      key={question.question}
+                      className={`rounded-2xl border px-5 py-4 ${
+                        right ? "border-primary/50 bg-primary/10" : "border-border bg-muted/30"
+                      }`}
+                    >
+                      <p className="text-sm">
+                        <span className="mr-2">{right ? "✅" : "💗"}</span>
+                        {question.question}
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        You said: {given ?? "—"}
+                        {!right && ` · It was: ${question.correct}`}
+                      </p>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <p className="mt-8 font-[family-name:var(--font-hand)] text-2xl text-primary">
                 {love.quiz.finish}
               </p>
+              <button
+                type="button"
+                onClick={restart}
+                className="mt-6 text-xs uppercase tracking-[0.25em] text-primary"
+              >
+                try again
+              </button>
             </>
           ) : (
             <>
