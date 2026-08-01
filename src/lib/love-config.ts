@@ -1,18 +1,24 @@
-import p1 from "@/assets/p1.jpg";
-import p2 from "@/assets/p2.jpg";
-import p3 from "@/assets/p3.jpg";
-import p4 from "@/assets/p4.jpg";
+import g1 from "@/assets/g1.jpg.asset.json";
+import g2 from "@/assets/g2.jpg.asset.json";
+import g3 from "@/assets/g3.jpg.asset.json";
+import g4 from "@/assets/g4.jpg.asset.json";
+import g5 from "@/assets/g5.jpg.asset.json";
+import g6 from "@/assets/g6.jpg.asset.json";
+import g7 from "@/assets/g7.jpg.asset.json";
+import g8 from "@/assets/g8.jpg.asset.json";
+import g9 from "@/assets/g9.jpg.asset.json";
+import g10 from "@/assets/g10.jpg.asset.json";
 
 /**
  * Everything personal lives here — edit this file to make the site yours.
  */
 export const love = {
-  herName: "Beautiful",
+  herName: "Nyawira",
   yourName: "Me",
   /** When you two became "us" — used by the live love counter. */
-  togetherSince: "2023-11-12T19:30:00",
+  togetherSince: "2024-10-22T19:30:00",
 
-  openingLines: ["Hey beautiful...", "I made something just for you."],
+  openingLines: ["Hey Nyawira...", "I made something just for you."],
 
   reasons: [
     {
@@ -36,28 +42,101 @@ export const love = {
   ],
 
   timeline: [
-    { label: "First Message", note: "I typed it four times before sending it. Worth it." },
-    { label: "First Date", note: "We closed the place down and still weren't finished talking." },
-    { label: "Funny Moment", note: "You laughed so hard you cried. I fell for you right there." },
+    { label: "June 15 — Talking Stage", note: "The day we finally said how we felt out loud. Everything started there." },
+    { label: "October 22 — Officially Us", note: "Rooftop, after Chinese food, heart in my throat. You said yes." },
+    { label: "Valentine's Day", note: "Each other's first. I'll never get another first like that." },
     { label: "Today ❤️", note: "Still choosing you, on purpose, every single morning." },
   ],
 
   gallery: [
-    { src: p1, caption: "Two cups, one table", story: "Our little ritual. Slow mornings with you are my favourite luxury." },
-    { src: p2, caption: "Golden hour", story: "You said the sky looked unreal. I was looking at you." },
-    { src: p3, caption: "Roses & fairy lights", story: "The night I realised our home isn't a place, it's you." },
-    { src: p4, caption: "The note", story: "I still keep every little thing you've ever written me." },
+    { src: g1.url, caption: "Tongues out, seatbelts on", story: "Car rides with you turn into whole comedy specials." },
+    { src: g9.url, caption: "Loudest laugh in the room", story: "You in that leather jacket, both of us shouting. Pure us." },
+    { src: g5.url, caption: "Kitchen queen", story: "Delivered with love — the bag was right about you." },
+    { src: g8.url, caption: "Mirror, mirror", story: "That headband, that jersey, that pose. Unfair how good you look." },
+    { src: g6.url, caption: "Spoon and a bonnet", story: "Late nights, snacks, and absolutely no seriousness." },
+    { src: g7.url, caption: "Golden hour on you", story: "The light knew exactly what it was doing." },
+    { src: g3.url, caption: "Class was boring", story: "So we made our own entertainment. Regret nothing." },
+    { src: g2.url, caption: "Headphones and giggles", story: "You laughing at something dumb I said, again." },
+    { src: g4.url, caption: "Glasses and mischief", story: "This is the face I picture when someone says your name." },
+    { src: g10.url, caption: "Simply stunning", story: "No pose, no filter, just you. Still my favourite view." },
   ],
 
+  /** Multi-question quiz — every answer is celebrated, correct ones get confetti. */
   quiz: {
-    question: "What is my favourite thing about you?",
-    answers: ["My smile", "My laugh", "My heart", "My chaos"],
-    response: "Correct ❤️ — it's all of it. It's you.",
+    questions: [
+      {
+        question: "When did we first share our feelings?",
+        answers: ["June 15th", "October 22nd", "February 14th", "New Year's Eve"],
+        correct: "June 15th",
+        response: "June 15th ❤️ — the day the talking stage stopped pretending.",
+      },
+      {
+        question: "What was my first gift to you?",
+        answers: ["A plushie, a necklace & a bracelet", "Perfume", "A journal", "Flowers"],
+        correct: "A plushie, a necklace & a bracelet",
+        response: "A plushie with a necklace and a bracelet — and you still have all three.",
+      },
+      {
+        question: "What was your first gift to me?",
+        answers: ["Perfume, a sudoku book & a journal", "A watch", "A plushie", "Chocolate"],
+        correct: "Perfume, a sudoku book & a journal",
+        response: "Perfume, a sudoku book and a journal. You knew me too well already.",
+      },
+      {
+        question: "What was my very first nickname for you?",
+        answers: ["Nyams", "Nyamburu", "Little jar of ashes"],
+        correct: "Nyams",
+        response: "Nyams ❤️ — the first of many, and still the softest one.",
+      },
+    ],
+    finish: "Perfect score or not — you're still my favourite answer.",
   },
 
-  finalLetter: `Happy Girlfriend's Day, my love.
+  /** Our dates, ranked. */
+  ranking: {
+    title: "Our dates, officially ranked",
+    subtitle: "a completely biased leaderboard",
+    items: [
+      {
+        name: "Rooftop after Chinese food",
+        note: "I asked you to be my girlfriend up there. Nothing beats it.",
+        emoji: "🌇",
+      },
+      {
+        name: "Picnic with the intimate questions",
+        note: "We answered things we'd never said out loud. I fell deeper that afternoon.",
+        emoji: "🧺",
+      },
+      {
+        name: "Valentine's Day",
+        note: "Each other's first. Nervous, giddy, perfect.",
+        emoji: "💘",
+      },
+      {
+        name: "Museum & dinner",
+        note: "You explained half the exhibits better than the plaques did.",
+        emoji: "🏛️",
+      },
+      {
+        name: "Chinese food date",
+        note: "The warm-up act to the rooftop — and still delicious.",
+        emoji: "🥡",
+      },
+    ],
+  },
+
+  funFacts: [
+    { emoji: "🌠", text: "We saw a shooting star together on Mt. Kenya — before we were even us." },
+    { emoji: "📅", text: "699 days of knowing you. That's 1 year and 11 months of my favourite person." },
+    { emoji: "💬", text: "June 15th: talking stage. October 22nd: officially yours." },
+    { emoji: "🧸", text: "A plushie, a necklace and a bracelet started the gift-giving war. You won with a sudoku book." },
+  ],
+
+  finalLetter: `Happy Girlfriend's Day, Nyawira.
 
 I built this instead of buying something because nothing on a shelf could hold how I feel about you. You are my calm and my favourite adventure at the same time.
+
+From a shooting star on Mt. Kenya, to June 15th, to a rooftop on October 22nd — every version of us has been my favourite one yet.
 
 Thank you for every ordinary day you make extraordinary just by being in it. I love you — today, tomorrow, and in every version of the future I can imagine.`,
 };
