@@ -203,42 +203,154 @@ export function LoveCounter() {
   );
 }
 
+export function DateRanking() {
+  return (
+    <section className="mx-auto w-full max-w-3xl px-6 py-24">
+      <Reveal>
+        <p className="text-center text-xs uppercase tracking-[0.35em] text-muted-foreground">
+          {love.ranking.subtitle}
+        </p>
+        <h2 className="mt-3 text-center text-4xl sm:text-5xl">{love.ranking.title}</h2>
+      </Reveal>
+
+      <ol className="mt-14 space-y-4">
+        {love.ranking.items.map((item, i) => (
+          <li key={item.name}>
+            <Reveal delay={i * 100}>
+              <div className="glass-card flex items-start gap-5 rounded-3xl p-6 transition-transform duration-500 hover:-translate-y-1">
+                <span className="text-rose-gradient font-[family-name:var(--font-display)] text-4xl tabular-nums leading-none">
+                  {i + 1}
+                </span>
+                <div className="flex-1">
+                  <h3 className="text-xl">
+                    <span className="mr-2">{item.emoji}</span>
+                    {item.name}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.note}</p>
+                </div>
+              </div>
+            </Reveal>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+export function FunFacts() {
+  return (
+    <section className="mx-auto w-full max-w-4xl px-6 py-24">
+      <Reveal>
+        <h2 className="text-center text-4xl sm:text-5xl">Little facts about us</h2>
+      </Reveal>
+      <div className="mt-14 grid gap-5 sm:grid-cols-2">
+        {love.funFacts.map((f, i) => (
+          <Reveal key={f.text} delay={i * 100}>
+            <div className="glass-card h-full rounded-3xl p-7">
+              <span className="text-3xl">{f.emoji}</span>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function LoveQuiz({ onCorrect }: { onCorrect: () => void }) {
+  const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
+  const [score, setScore] = useState(0);
+  const [done, setDone] = useState(false);
+
+  const q = love.quiz.questions[step];
+  const total = love.quiz.questions.length;
+
+  const choose = (a: string) => {
+    if (picked) return;
+    setPicked(a);
+    if (a === q.correct) {
+      setScore((s) => s + 1);
+      onCorrect();
+    }
+  };
+
+  const next = () => {
+    if (step < total - 1) {
+      setStep(step + 1);
+      setPicked(null);
+    } else {
+      setDone(true);
+      onCorrect();
+    }
+  };
 
   return (
     <section className="mx-auto w-full max-w-2xl px-6 py-24 text-center">
       <Reveal>
         <div className="glass-card rounded-[2rem] p-10">
-          <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground">tiny quiz</p>
-          <h2 className="mt-4 text-3xl sm:text-4xl">{love.quiz.question}</h2>
+          {done ? (
+            <>
+              <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground">all done</p>
+              <h2 className="mt-4 text-3xl sm:text-4xl">
+                {score}/{total} ❤️
+              </h2>
+              <p className="mt-6 font-[family-name:var(--font-hand)] text-2xl text-primary">
+                {love.quiz.finish}
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-xs uppercase tracking-[0.35em] text-muted-foreground">
+                question {step + 1} of {total}
+              </p>
+              <h2 className="mt-4 text-3xl sm:text-4xl">{q.question}</h2>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {love.quiz.answers.map((a) => (
-              <button
-                key={a}
-                type="button"
-                onClick={() => {
-                  setPicked(a);
-                  onCorrect();
-                }}
-                className="rounded-full border border-primary/40 px-5 py-3 text-sm transition-colors hover:bg-primary/10"
-              >
-                {a}
-              </button>
-            ))}
-          </div>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {q.answers.map((a) => {
+                  const isPicked = picked === a;
+                  const isRight = a === q.correct;
+                  return (
+                    <button
+                      key={a}
+                      type="button"
+                      onClick={() => choose(a)}
+                      className={`rounded-full border px-5 py-3 text-sm transition-colors ${
+                        picked && isRight
+                          ? "border-primary bg-primary/15 text-primary"
+                          : isPicked
+                            ? "border-muted-foreground/40 bg-muted/40 text-muted-foreground"
+                            : "border-primary/40 hover:bg-primary/10"
+                      }`}
+                    >
+                      {a}
+                    </button>
+                  );
+                })}
+              </div>
 
-          {picked && (
-            <p className="mt-8 font-[family-name:var(--font-hand)] text-2xl text-primary">
-              {love.quiz.response}
-            </p>
+              {picked && (
+                <>
+                  <p className="mt-8 font-[family-name:var(--font-hand)] text-2xl text-primary">
+                    {picked === q.correct ? q.response : `Almost — ${q.response}`}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={next}
+                    className="mt-6 rounded-full bg-[image:var(--gradient-rose)] px-8 py-3 text-xs uppercase tracking-[0.25em] text-primary-foreground shadow-[var(--shadow-lift)] transition-transform hover:scale-105"
+                  >
+                    {step < total - 1 ? "Next" : "Finish"}
+                  </button>
+                </>
+              )}
+            </>
           )}
         </div>
       </Reveal>
     </section>
   );
 }
+
 
 export function GiftFinale({ onLove }: { onLove: () => void }) {
   const [opened, setOpened] = useState(false);
